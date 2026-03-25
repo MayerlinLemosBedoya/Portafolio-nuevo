@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayerlin Lemos Bedoya — Portafolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --verde: #1a3d2b;
+    --verde-medio: #2d6a4f;
+    --verde-acento: #40916c;
+    --verde-claro: #74c69d;
+    --verde-palido: #d8f3dc;
+    --verde-mint: #f0faf3;
+    --blanco: #ffffff;
+    --gris-claro: #f8faf8;
+    --texto: #1b2d23;
+    --texto-suave: #4a6358;
+    --sombra: 0 4px 24px rgba(26,61,43,0.08);
+    --sombra-hover: 0 12px 40px rgba(26,61,43,0.16);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blanco);
+    color: var(--texto);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--verde-palido);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--verde);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo-sub {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--verde-acento);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--verde-claro);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--verde-acento); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--verde);
+    color: var(--blanco) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--verde-acento) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2rem 4rem;
+    background: var(--blanco);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Patrón de fondo sutil */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(ellipse, rgba(116,198,157,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse, rgba(26,61,43,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--verde-acento);
+    background: var(--verde-mint);
+    border: 1px solid var(--verde-palido);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--verde-claro);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1.08;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--verde-acento);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--texto-suave);
+    font-weight: 300;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--verde);
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--verde-acento);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--verde);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1.5px solid var(--verde-palido);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--verde-claro);
+    background: var(--verde-mint);
+  }
+
+  /* Stats hero */
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--verde-palido);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  /* Lado derecho del hero */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-card {
+    background: var(--blanco);
+    border: 1px solid var(--verde-palido);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .hero-card:hover {
+    transform: translateX(6px);
+    box-shadow: var(--sombra-hover);
+  }
+
+  .hero-card-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .hero-card-text { flex: 1; }
+
+  .hero-card-title {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--verde);
+    margin-bottom: 2px;
+  }
+
+  .hero-card-sub {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    font-weight: 300;
+  }
+
+  .hero-card-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+
+  /* ── SECCIONES ── */
+  section { padding: 6rem 2rem; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--verde-acento);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: var(--verde);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--texto-suave);
+    font-weight: 300;
+    max-width: 540px;
+    margin-bottom: 3.5rem;
+    line-height: 1.8;
+  }
+
+  /* ── PROYECTOS GRID ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--blanco);
+    border: 1px solid var(--verde-palido);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-hover);
+  }
+
+  .project-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-img-placeholder span {
+    font-size: 2.5rem;
+  }
+
+  .project-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--verde-acento);
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--verde);
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    font-weight: 300;
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--verde-mint);
+    color: var(--verde-acento);
+    border: 1px solid var(--verde-palido);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--verde-acento);
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .project-link:hover { gap: 0.6rem; }
+
+  /* ── SERVICIOS ── */
+  .services-bg {
+    background: var(--verde);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-bg::before {
+    content: '';
+    position: absolute;
+    top: -300px; right: -200px;
+    width: 800px; height: 800px;
+    background: radial-gradient(ellipse, rgba(116,198,157,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(116,198,157,0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--verde-claro);
+    transition: height 0.4s ease;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .service-card:hover {
+    background: rgba(255,255,255,0.09);
+    transform: translateY(-4px);
+  }
+
+  .service-card:hover::before { height: 100%; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--blanco);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .service-item {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .service-item::before {
+    content: '→';
+    color: var(--verde-claro);
+    font-size: 0.75rem;
+  }
+
+  /* CTA servicios */
+  .services-cta {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2.5rem;
+    background: rgba(116,198,157,0.08);
+    border: 1px solid rgba(116,198,157,0.2);
+    border-radius: 20px;
+  }
+
+  .services-cta p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+
+  /* ── SOBRE MÍ ── */
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 24px;
+    object-fit: cover;
+    border: 3px solid var(--verde-palido);
+    box-shadow: var(--sombra-hover);
+  }
+
+  .about-img-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 24px;
+    background: var(--verde-mint);
+    border: 3px solid var(--verde-palido);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+  }
+
+  /* Badge flotante */
+  .about-badge {
+    position: absolute;
+    bottom: -16px; right: -16px;
+    background: var(--verde);
+    color: var(--blanco);
+    padding: 1rem 1.4rem;
+    border-radius: 14px;
+    box-shadow: var(--sombra-hover);
+    text-align: center;
+  }
+
+  .about-badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--verde-claro);
+    line-height: 1;
+  }
+
+  .about-badge-text {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .about-content { padding-bottom: 2rem; }
+
+  .about-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .skill-tag {
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--verde-palido);
+    color: var(--verde-acento);
+    background: var(--verde-mint);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .skill-tag:hover {
+    background: var(--verde-palido);
+    border-color: var(--verde-claro);
+  }
+
+  /* ── CONTACTO ── */
+  .contact-bg { background: var(--verde-mint); }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-hover);
+  }
+
+  .cl-primary {
+    background: var(--verde);
+    color: var(--blanco);
+  }
+
+  .cl-secondary {
+    background: var(--blanco);
+    color: var(--verde);
+    border: 1.5px solid var(--verde-palido);
+  }
+
+  .cl-blog {
+    background: var(--verde-acento);
+    color: var(--blanco);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--verde);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(116,198,157,0.15);
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.82rem;
+  }
+
+  footer a { color: var(--verde-claro); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-badge { bottom: -10px; right: -10px; }
+    .nav-links { display: none; }
+  }
+
+  /* ── ANIMACIONES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.5s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.6s; }
+
+  .hero-card:nth-child(1) { animation: slideRight 0.6s 0.3s ease both; }
+  .hero-card:nth-child(2) { animation: slideRight 0.6s 0.45s ease both; }
+  .hero-card:nth-child(3) { animation: slideRight 0.6s 0.6s ease both; }
+  .hero-card:nth-child(4) { animation: slideRight 0.6s 0.75s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="Favicon.png" alt="Logo Mayerlin Lemos Bedoya">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Mayerlin Lemos</span>
+      <span class="nav-logo-sub">Ilustración · Diseño · Divulgación</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="https://blogbiologiailustrati.netlify.app" target="_blank">Blog</a></li>
+    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Disponible para proyectos</div>
+      <h1>Ilustración<br><em>científica</em><br>& diseño editorial</h1>
+      <p class="hero-desc">Hago visible lo invisible, convierto conceptos científicos complejos en piezas visuales que comunican, educan y enamoran.</p>
+      <div class="hero-btns">
+        <a href="#proyectos" class="btn-primary">Ver proyectos →</a>
+        <a href="#contacto" class="btn-secondary">Hablemos</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">7</span>
+          <span class="stat-label">Artículos publicados</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Áreas de trabajo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards lado derecho -->
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:#f0faf3;"><i data-lucide="microscope" style="width:22px;height:22px;stroke:#40916c;stroke-width:1.8;"></i></div>
+        <div class="hero-card-text">
+          <div class="hero-card-title">Ilustración científica</div>
+          <div class="hero-card-sub">Células, microorganismos, ciclos biológicos</div>
+        </div>
+        <span class="hero-card-tag" style="background:#d8f3dc; color:#2d6a4f;">Principal</span>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:#f0faf3;"><i data-lucide="book-open" style="width:22px;height:22px;stroke:#40916c;stroke-width:1.8;"></i></div>
+        <div class="hero-card-text">
+          <div class="hero-card-title">Diseño editorial</div>
+          <div class="hero-card-sub">Revistas, cartillas, guías educativas</div>
+        </div>
+        <span class="hero-card-tag" style="background:#d8f3dc; color:#2d6a4f;">Editorial</span>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:#f0faf3;"><i data-lucide="leaf" style="width:22px;height:22px;stroke:#40916c;stroke-width:1.8;"></i></div>
+        <div class="hero-card-text">
+          <div class="hero-card-title">Divulgación científica</div>
+          <div class="hero-card-sub">Contenido visual para ciencia accesible</div>
+        </div>
+        <span class="hero-card-tag" style="background:#d8f3dc; color:#2d6a4f;">Digital</span>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:#f0faf3;"><i data-lucide="code-2" style="width:22px;height:22px;stroke:#40916c;stroke-width:1.8;"></i></div>
+        <div class="hero-card-text">
+          <div class="hero-card-title">Desarrollo web</div>
+          <div class="hero-card-sub">HTML · CSS · JavaScript · Tailwind</div>
+        </div>
+        <span class="hero-card-tag" style="background:#d8f3dc; color:#2d6a4f;">Web</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" style="background: var(--blanco);">
+  <div class="section-inner">
+    <span class="section-label">Trabajo seleccionado</span>
+    <h2 class="section-title">Proyectos</h2>
+    <p class="section-desc">Una selección de proyectos de ilustración científica, diseño editorial y divulgación visual.</p>
+
+    <div class="projects-grid">
+
+      <!-- Proyecto 1: Revista Microcosmos -->
+      <div class="project-card">
+        <div class="project-img" style="background: linear-gradient(135deg, #1a3d2b 0%, #2d6a4f 100%);">
+          <div class="project-img-placeholder">
+            <img src="Portada .png" alt="Portada revista Microcosmos" style="width:100%; height:100%; object-fit:cover; border-radius:0; display:block;">
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Diseño editorial · 2026</span>
+          <h3 class="project-title">Microcosmos — Atlas Visual del Mundo Microscópico</h3>
+          <p class="project-desc">Revista digital de 12 páginas sobre microbiología con ilustraciones científicas propias, infografías de ciclos de infección y microfotografías reales de laboratorio.<br> PDF interactivo con hipervínculos activos.</p>
+          <div class="project-tags">
+            <span class="tag">Adobe InDesign</span>
+            <span class="tag">Ilustración científica</span>
+            <span class="tag">PDF Interactivo</span>
+            <span class="tag">Microbiología</span>
+          </div>
+          <a href="https://issuu.com/biologiailustrativa/docs/microcosmos_atlas_visual_del_mundo_microsc_pico_" target="_blank" class="project-link">Ver revista →</a>
+        </div>
+      </div>
+
+      <!-- Proyecto 2: Blog Biología Ilustrativa -->
+      <div class="project-card">
+        <div class="project-img" style="background: linear-gradient(135deg, #40916c 0%, #74c69d 100%);">
+          <div class="project-img-placeholder">
+            <img src="Portada blog.png" alt="Portada del blog Biología Ilustrativa" style="width:100%; height:100%; object-fit:cover; border-radius:0; display:block;">
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Agrega screenshot del blog</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Proyecto propio · 2025–2026</span>
+          <h3 class="project-title">Biología Ilustrativa — Blog de divulgación científica</h3>
+          <p class="project-desc">Blog de divulgación científica con 7+ artículos publicados sobre microbiología, ilustración y biología. Diseñado, desarrollado e ilustrado completamente por mí <br> Código propio en HTML, CSS y JavaScript con Tailwind, desplegado en Netlify.</p>
+          <div class="project-tags">
+            <span class="tag">HTML · CSS · JavaScript</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Netlify</span>
+            <span class="tag">Ilustración propia</span>
+            <span class="tag">Divulgación científica</span>
+          </div>
+          <a href="https://blogbiologiailustrati.netlify.app" target="_blank" class="project-link">Visitar blog →</a>
+        </div>
+      </div>
+
+      <!-- Proyecto 3: Cartilla USC -->
+      <div class="project-card">
+        <div class="project-img" style="background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);">
+          <div class="project-img-placeholder">
+            
+  <img src="Portada de USC.png" alt="Portada cartilla educativa USC" style="width:100%; height:100%; object-fit:cover; border-radius:0; display:block;">
+          </div>
+          <!-- Badge en proceso -->
+          <div style="position:absolute; top:12px; right:12px; background:rgba(116,198,157,0.9); color:#1a3d2b; font-size:0.65rem; font-weight:700; padding:4px 10px; border-radius:100px; letter-spacing:0.08em; text-transform:uppercase;">
+            En proceso
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Colaboración · USC · 2026</span>
+          <h3 class="project-title">Cartilla educativa — Microalgas aliadas frente a la RAM</h3>
+          <p class="project-desc">Colaboración en cartilla educativa ilustrada sobre el papel de las microalgas en la resistencia antimicrobiana. Material dirigido a estudiantes y público general de la Universidad Santiago de Cali. Publicación próxima.</p>
+          <div class="project-tags">
+            <span class="tag">Ilustración científica</span>
+            <span class="tag">Diseño editorial</span>
+            <span class="tag">Educación</span>
+            <span class="tag">Colaboración USC</span>
+          </div>
+          <span style="font-size:0.82rem; color:var(--verde-acento); font-weight:500; margin-top:0.5rem; display:flex; align-items:center; gap:0.4rem;">
+            ⏳ Publicación próxima
+          </span>
+        </div>
+      </div>
+
+      <!-- Proyecto 4: Ilustraciones científicas -->
+      <div class="project-card">
+        <div class="project-img" style="background:(#ffffff);">
+          <div class="project-img-placeholder">
+            <img src="Recurso 16amebiasis.png" alt="Ejemplo de ilustración científica" style="width:100%; height:100%; object-fit:cover; border-radius:0; display:block;">
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Ilustración científica · 2025–Presente</span>
+          <h3 class="project-title">Colección de ilustraciones científicas</h3>
+          <p class="project-desc">Serie de ilustraciones vectoriales de organismos microscópicos, células eucariotas y procariotas, hongos filamentosos, protozoos, bacterias y microalgas. Rigor científico y estética editorial.</p>
+          <div class="project-tags">
+            <span class="tag">Adobe Illustrator</span>
+            <span class="tag">Vectorial</span>
+            <span class="tag">Microbiología</span>
+            <span class="tag">Células</span>
+          </div>
+          <a href="ilustraciones.html" target="_blank" class="project-link">Ver ilustraciones →</a>
+        </div>
+      </div>
+
+      <!-- Proyecto 5: Guías de laboratorio -->
+      <div class="project-card">
+        <div class="project-img" style="background: linear-gradient(135deg, #74c69d 0%, #40916c 100%);">
+          <div class="project-img-placeholder">
+    <img src="Portada de guias de laboratorio.png" alt="Portada guías de laboratorio" style="width:100%; height:100%; object-fit:cover; border-radius:0; display:block;">
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Diseño educativo · 2025</span>
+          <h3 class="project-title">Diseño de guías de laboratorio</h3>
+          <p class="project-desc">Diseño de material educativo para prácticas de laboratorio de microbiología. <br> Documentos con estructura clara, ilustraciones de procedimientos y sistema visual coherente para facilitar el aprendizaje.</p>
+          <div class="project-tags">
+            <span class="tag">Diseño educativo</span>
+            <span class="tag">Adobe InDesign</span>
+            <span class="tag">Laboratorio</span>
+            <span class="tag">Microbiología</span>
+          </div>
+          <a href="Guías de laboratorio Microbiología - aplicada Práctica 1-5 modificada (1).pdf" class="project-link">Solicitar →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services-bg" id="servicios">
+  <div class="section-inner" style="position:relative; z-index:1;">
+    <span class="section-label" style="color:var(--verde-claro);">¿En qué puedo ayudarte?</span>
+    <h2 class="section-title" style="color:var(--blanco);">Servicios</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.6);">Combino conocimiento científico con diseño para crear materiales que comunican con claridad y belleza.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon"><i data-lucide="microscope" style="width:28px;height:28px;stroke:#74c69d;stroke-width:1.5;"></i></span>
+        <h3 class="service-title">Ilustración científica</h3>
+        <p class="service-desc">Ilustraciones vectoriales precisas de organismos, procesos biológicos, ciclos de vida y estructuras microscópicas.</p>
+        <div class="service-items">
+          <span class="service-item">Células y organelos</span>
+          <span class="service-item">Microorganismos patógenos</span>
+          <span class="service-item">Ciclos de infección</span>
+          <span class="service-item">Microalgas y fitoplancton</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon"><i data-lucide="layout-template" style="width:28px;height:28px;stroke:#74c69d;stroke-width:1.5;"></i></span>
+        <h3 class="service-title">Diseño editorial científico</h3>
+        <p class="service-desc">Maquetación de revistas, cartillas, guías y publicaciones digitales con identidad visual coherente y profesional.</p>
+        <div class="service-items">
+          <span class="service-item">Revistas digitales PDF</span>
+          <span class="service-item">Cartillas educativas</span>
+          <span class="service-item">Guías de laboratorio</span>
+          <span class="service-item">Infografías científicas</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon"><i data-lucide="leaf" style="width:28px;height:28px;stroke:#74c69d;stroke-width:1.5;"></i></span>
+        <h3 class="service-title">Divulgación científica visual</h3>
+        <p class="service-desc">Contenido visual para redes sociales, blogs y plataformas educativas que hace la ciencia accesible y atractiva.</p>
+        <div class="service-items">
+          <span class="service-item">Posts educativos ilustrados</span>
+          <span class="service-item">Infografías para redes</span>
+          <span class="service-item">Material didáctico digital</span>
+          <span class="service-item">Recursos descargables</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon"><i data-lucide="globe" style="width:28px;height:28px;stroke:#74c69d;stroke-width:1.5;"></i></span>
+        <h3 class="service-title">Sitios web de divulgación</h3>
+        <p class="service-desc">Diseño y desarrollo de blogs y sitios web para investigadores, docentes e instituciones científicas.</p>
+        <div class="service-items">
+          <span class="service-item">Blogs científicos</span>
+          <span class="service-item">Portafolios de investigación</span>
+          <span class="service-item">Sitios educativos</span>
+          <span class="service-item">Deploy en Netlify</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="services-cta">
+      <p>"Cada proyecto es una oportunidad de hacer la ciencia más visible"</p>
+      <a href="#contacto" class="btn-primary" style="background:var(--verde-claro); color:var(--verde);">Hablemos de tu proyecto →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" style="background:var(--blanco);">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <!-- Reemplaza con tu foto: <img src="tu-foto.jpg" class="about-img" alt="Mayerlin Lemos"> -->
+        <img src="Mayerlin Lemos.jpeg" class="about-img" alt="Mayerlin Lemos Bedoya">
+      </div>
+      <div class="about-content">
+        <span class="section-label">Quién soy</span>
+        <h2 class="section-title">Mayerlin Lemos Bedoya</h2>
+        <p style="font-size:1rem; color:var(--texto-suave); font-weight:300; line-height:1.8; margin-bottom:1rem;">
+          Soy microbióloga, ilustradora científica y diseñadora grafica en formación. Fundé <strong style="color:var(--verde-acento);">Biología Ilustrativa</strong> con la convicción de que la ciencia comunica mejor cuando se puede ver.
+        </p>
+        <p style="font-size:1rem; color:var(--texto-suave); font-weight:300; line-height:1.8;">
+          Mi trabajo combina rigor científico con criterio visual desde la ilustración de una célula hasta la maquetación de una revista completa. Cada pieza tiene contenido verificado y una intención comunicativa clara.
+        </p>
+        <div class="about-skills">
+          <span class="skill-tag">Adobe Illustrator</span>
+          <span class="skill-tag">Adobe InDesign</span>
+          <span class="skill-tag">Adobe Lightroom</span>
+          <span class="skill-tag">Sketchbook</span>
+          <span class="skill-tag">HTML · CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Microbiología</span>
+          <span class="skill-tag">Ilustración científica</span>
+          <span class="skill-tag">Divulgación científica</span>
+        </div>
+        <a href="https://blogbiologiailustrati.netlify.app" target="_blank" class="btn-primary">Visitar mi blog →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-bg" id="contacto">
+  <div class="contact-inner section-inner">
+    <span class="section-label center" style="display:block; text-align:center;">¿Tienes un proyecto?</span>
+    <h2 class="section-title" style="text-align:center;">Hablemos</h2>
+    <p style="text-align:center; color:var(--texto-suave); font-weight:300; font-size:1rem; line-height:1.8;">
+      Estoy disponible para proyectos de ilustración científica, diseño editorial y divulgación visual. Escríbeme y conversamos.
+    </p>
+    <div class="contact-links">
+      <a href="https://wa.link/n7nlld" class="contact-link cl-primary">
+       Enviar mensaje 
+      </a>
+      <a href="https://blogbiologiailustrati.netlify.app" target="_blank" class="contact-link cl-blog">
+         Ver blog
+      </a>
+      <a href="https://www.instagram.com/biologia_ilustrativa/" target="_blank" class="contact-link cl-secondary">
+        <i data-lucide="instagram" style="width:16px;height:16px;stroke:currentColor;stroke-width:2;"></i> Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 · <strong style="color:rgba(255,255,255,0.65);">Mayerlin Lemos Bedoya</strong>  <a href="https://blogbiologiailustrati.netlify.app">

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ilustraciones Científicas — Mayerlin Lemos Bedoya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --verde: #1a3d2b;
+    --verde-medio: #2d6a4f;
+    --verde-acento: #40916c;
+    --verde-claro: #74c69d;
+    --verde-palido: #d8f3dc;
+    --verde-mint: #f0faf3;
+    --blanco: #ffffff;
+    --texto: #1b2d23;
+    --texto-suave: #4a6358;
+    --sombra: 0 4px 24px rgba(26,61,43,0.08);
+    --sombra-hover: 0 12px 40px rgba(26,61,43,0.16);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blanco);
+    color: var(--texto);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--verde-palido);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--verde); letter-spacing: -0.01em; }
+  .nav-logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--verde-acento); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--texto-suave); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--verde-claro); transition: width 0.3s; }
+  .nav-links a:hover { color: var(--verde-acento); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--verde-acento); }
+  .nav-links a.active::after { width: 100%; }
+
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--verde);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .nav-back:hover { gap: 0.7rem; color: var(--verde-acento); }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: var(--verde);
+    padding: 7rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%2374c69d' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='510' cy='90' r='32' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3Ccircle cx='100' cy='380' r='35' fill='none' stroke='%2374c69d' stroke-width='1' opacity='0.18'/%3E%3C/svg%3E");
+    background-size: 600px 600px;
+    background-repeat: repeat;
+    z-index: 0;
+  }
+
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,61,43,0.92) 0%, rgba(45,106,79,0.85) 60%, rgba(64,145,108,0.88) 100%);
+    z-index: 0;
+  }
+
+  .page-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(116,198,157,0.2);
+    border: 1px solid rgba(116,198,157,0.4);
+    color: var(--verde-claro);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+  }
+
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--verde-claro); }
+
+  .page-hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* Stats hero */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(116,198,157,0.2);
+  }
+
+  .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--verde-claro); line-height: 1; }
+  .hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; }
+
+  /* ── GALERÍA ── */
+  .galeria-section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Filtros */
+  .filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--verde-palido);
+    background: transparent;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--verde);
+    border-color: var(--verde);
+    color: var(--blanco);
+  }
+
+  /* Card de ilustración — imagen izquierda, descripción derecha */
+  .ilus-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--verde-palido);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    margin-bottom: 2.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--blanco);
+  }
+
+  .ilus-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+  }
+
+  /* Alternar imagen izquierda/derecha */
+  .ilus-card:nth-child(even) { direction: rtl; }
+  .ilus-card:nth-child(even) > * { direction: ltr; }
+
+  /* Imagen */
+  .ilus-img-wrap {
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--verde-mint);
+  }
+
+  .ilus-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s ease;
+    padding: 1.5rem;
+  }
+
+  .ilus-card:hover .ilus-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  /* Badge de categoría sobre imagen */
+  .ilus-cat-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(26,61,43,0.85);
+    border: 1px solid rgba(116,198,157,0.3);
+    color: var(--verde-claro);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Contenido descripción */
+  .ilus-body {
+    padding: 2.5rem 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    border-left: 1px solid var(--verde-palido);
+  }
+
+  .ilus-card:nth-child(even) .ilus-body {
+    border-left: none;
+    border-right: 1px solid var(--verde-palido);
+  }
+
+  .ilus-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--verde-palido);
+    line-height: 1;
+    margin-bottom: -0.5rem;
+  }
+
+  .ilus-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .ilus-title em { font-style: italic; color: var(--verde-acento); }
+
+  .ilus-rule { width: 36px; height: 2.5px; background: var(--verde-claro); }
+
+  .ilus-desc {
+    font-size: 0.92rem;
+    color: var(--texto-suave);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .ilus-desc strong { color: var(--verde); font-weight: 600; }
+
+  /* Meta info */
+  .ilus-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .ilus-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    background: var(--verde-mint);
+    border: 1px solid var(--verde-palido);
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+  }
+
+  /* Separador de sección */
+  .section-sep {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0 2rem;
+  }
+
+  .section-sep-line { flex: 1; height: 1px; background: var(--verde-palido); }
+
+  .section-sep-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--verde-acento);
+    white-space: nowrap;
+  }
+
+  /* CTA final */
+  .galeria-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--verde-mint);
+    border: 1px solid var(--verde-palido);
+    border-radius: 20px;
+    margin-top: 2rem;
+  }
+
+  .galeria-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--verde);
+    margin-bottom: 0.75rem;
+  }
+
+  .galeria-cta p {
+    font-size: 0.95rem;
+    color: var(--texto-suave);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--verde);
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--verde-acento); transform: translateY(-2px); }
+
+  /* Footer */
+  footer {
+    background: var(--verde);
+    padding: 1.2rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(116,198,157,0.15);
+  }
+
+  footer p { color: rgba(255,255,255,0.45); font-size: 0.82rem; }
+  footer a { color: var(--verde-claro); text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .ilus-card { grid-template-columns: 1fr; }
+    .ilus-card:nth-child(even) { direction: ltr; }
+    .ilus-img-wrap { min-height: 260px; }
+    .ilus-body { padding: 1.8rem; border-left: none !important; border-right: none !important; border-top: 1px solid var(--verde-palido); }
+    .nav-links { display: none; }
+    .hero-stats { gap: 1.5rem; }
+  }
+
+  /* Animaciones */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page-hero-inner > * { animation: fadeUp 0.7s ease both; }
+  .page-hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .page-hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+  .page-hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+  .page-hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="portafolio_mayerlin.html" class="nav-logo">
+    <img src="Favicon.png" alt="Logo Mayerlin Lemos">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Mayerlin Lemos</span>
+      <span class="nav-logo-sub">Ilustración · Diseño · Divulgación</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="portafolio_mayerlin.html">Portafolio</a></li>
+    <li><a href="portafolio_mayerlin.html#servicios">Servicios</a></li>
+    <li><a href="portafolio_mayerlin.html#sobre-mi">Sobre mí</a></li>
+    <li><a href="https://blogbiologiailustrati.netlify.app" target="_blank">Blog</a></li>
+    <li><a href="portafolio_mayerlin.html#contacto" class="nav-back">
+      ← Volver al portafolio
+    </a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="hero-tag">Ilustración científica · 2025–2026</span>
+    <h1>Colección de<br><em>ilustraciones</em> científicas</h1>
+    <p>Cada pieza combina rigor científico con criterio visual. Organismos microscópicos, ciclos biológicos y estructuras celulares ilustradas con precisión y estética editorial.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">8</span>
+        <span class="hero-stat-label">Ilustraciones</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">Categorías</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERÍA -->
+<section class="galeria-section">
+
+  <!-- Filtros -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filtrar('all', this)">Todas</button>
+    <button class="filter-btn" onclick="filtrar('celulas', this)">Células y organismos</button>
+    <button class="filter-btn" onclick="filtrar('ciclos', this)">Ciclos biológicos</button>
+    <button class="filter-btn" onclick="filtrar('patologias', this)">Patologías</button>
+  </div>
+
+  <!-- ── 01 Ameba ── -->
+  <div class="ilus-card fade-in" data-cat="celulas">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Protozoo</span>
+      <img src="Recurso 16amebiasis.png" alt="Ilustración de Ameba">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">01</div>
+      <h2 class="ilus-title"><em>Ameba</em><br>— Organismo unicelular</h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Ilustración del trofozoíto de <strong>la  estructura general</strong>, de una ameba. Se representan los pseudópodos característicos, el núcleo con endosoma central, las vacuolas contráctiles y las vesículas fagocíticas. La paleta neutra resalta la organización interna del organismo sin saturar al observador.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2026</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Parasitología</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 02 Esporulación Bacillus cereus ── -->
+  <div class="ilus-card fade-in" data-cat="ciclos">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Ciclo biológico</span>
+      <img src="Recurso 28esporulacion.png" alt="">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">02</div>
+      <h2 class="ilus-title">Ciclo de esporulación<br><em>Bacillus cereus</em></h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Diagrama del ciclo completo de <strong>esporulación bacteriana</strong> en <em>Bacillus cereus</em>: desde la célula vegetativa hasta la germinación del endosporo. Cada etapa está diferenciada por color y conectada con flechas claras. Diseñada para uso educativo en cursos de microbiología de alimentos y seguridad alimentaria.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2026</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Microbiología</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 03 Célula vegetal animal ── -->
+  <div class="ilus-card fade-in" data-cat="celulas">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Célula eucariota</span>
+      <img src="Recurso 47Celula vegetal.png" alt="Célula eucariota animal">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">03</div>
+      <h2 class="ilus-title">Célula eucariota<br><em>— Estructura interna</em></h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Corte transversal de una <strong>célula eucariota animal</strong> mostrando sus principales organelos: núcleo con nucléolo, retículo endoplasmático rugoso, mitocondrias, vesículas y membrana plasmática en doble capa. La paleta azul fría facilita la diferenciación visual de estructuras en contextos educativos.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2025</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Biología celular</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 04 Bacillus cereus ── -->
+  <div class="ilus-card fade-in" data-cat="celulas">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Bacteria</span>
+      <img src="Recurso 27Bacillus cereus.png"Bacillus cereus ilustración científica">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">04</div>
+      <h2 class="ilus-title"><em>Bacillus cereus</em><br>— Bacteria patógena</h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Ilustración de <strong><em>Bacillus cereus</em></strong>, bacteria gram-positiva que puede causar intoxicación alimentaria. Se representan la célula vegetativa, la espora y los elementos estructurales característicos. Importante en estudios de seguridad alimentaria.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2026</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Bacteria</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 05 Chlamydomonas ── -->
+  <div class="ilus-card fade-in" data-cat="celulas">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Microalga</span>
+      <img src="Recurso 50chamidomonas.png" alt="Chlamydomonas ilustración científica">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">05</div>
+      <h2 class="ilus-title"><em>Chlamydomonas</em> sp.<br>— Alga verde unicelular</h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Representación de <strong><em>Chlamydomonas</em></strong>, microalga verde con dos flagelos apicales. Se visualizan el gran cloroplasto en herradura con pirenoide, el núcleo central, el estigma y las vacuolas contráctiles. Organismo modelo en estudios de fotosíntesis, motilidad flagelar y biología molecular.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2025</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Microalgas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 06 Penicilosis ── -->
+  <div class="ilus-card fade-in" data-cat="patologias">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Micosis sistémica</span>
+      <img src="Penicillium.png" alt="Penicilosis ilustración científica">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">06</div>
+      <h2 class="ilus-title">Penicilosis<br><em>— Infección sistémica fúngica</em></h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Infografía de la <strong>penicilosis</strong> causada por <em>Talaromyces marneffei</em>. Muestra los órganos afectados en el cuerpo humano, el mecanismo de diseminación hematógena y las estructuras celulares involucradas en la infección. Diseñada para material educativo de micología médica e inmunología clínica.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2026</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Micología médica</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 07 Aspergilosis ── -->
+  <div class="ilus-card fade-in" data-cat="patologias">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Micosis pulmonar</span>
+      <img src="Recurso 30aspergilosis.png" alt="Aspergilosis ilustración científica">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">07</div>
+      <h2 class="ilus-title">Aspergilosis<br><em>— Infección pulmonar</em></h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Diagrama de la <strong>aspergilosis pulmonar</strong> producida por <em>Aspergillus fumigatus</em>. Ilustra la entrada por vía respiratoria, la colonización del parénquima pulmonar y la respuesta inmune del hospedero. Incluye detalle del conidio y las estructuras de dispersión del hongo. Pieza de apoyo para docencia en infectología.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2026</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Micología médica</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 08 Amebiasis ciclo ── -->
+  <div class="ilus-card fade-in" data-cat="ciclos">
+    <div class="ilus-img-wrap">
+      <span class="ilus-cat-badge">Ciclo parasitario</span>
+      <img src="Recurso 14amebiasis.png" alt="Ciclo de amebiasis">
+    </div>
+    <div class="ilus-body">
+      <div class="ilus-num">08</div>
+      <h2 class="ilus-title">Ciclo de la amebiasis<br><em>— Infección intestinal</em></h2>
+      <div class="ilus-rule"></div>
+      <p class="ilus-desc">
+        Representación del <strong>ciclo biológico de <em>Entamoeba histolytica</em></strong> en el hospedero humano: ingestión del quiste, excistación en intestino delgado, colonización del colon y formación de nuevos quistes. Incluye las fases de trofozoíto invasivo, quiste maduro e inmaduro. Recurso educativo para parasitología clínica.
+      </p>
+      <div class="ilus-meta">
+        <span class="ilus-meta-item"><i data-lucide="pen-tool" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Adobe Illustrator</span>
+        <span class="ilus-meta-item"><i data-lucide="calendar" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> 2026</span>
+        <span class="ilus-meta-item"><i data-lucide="tag" style="width:13px;height:13px;stroke:var(--verde-acento);"></i> Parasitología</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA final -->
+  <div class="galeria-cta fade-in">
+    <h3>¿Necesitas una ilustración científica?</h3>
+    <p>Creo ilustraciones vectoriales precisas para publicaciones educativas, material docente, divulgación científica y proyectos editoriales.</p>
+    <a href="portafolio_mayerlin.html#contacto" class="btn-primary">
+      <i data-lucide="mail" style="width:16px;height:16px;stroke:currentColor;"></i>
+      Hablemos de tu proyecto
+    </a>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 · <strong style="color:rgba(255,255,255,0.65);">Mayerlin Lemos Bedoya</strong> · <a href="https://blogbiologiailustrati.netlify.app">Blog</a> · <a href="portafolio_mayerlin.html">Portafolio</a></p>
+</footer>
+
+<script>
+  // Filtros
+  function filtrar(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.ilus-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'grid' : 'none';
+    });
+  }
+
+  // Fade in al scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Activar iconos Lucide
+  lucide.createIcons();
+</script>
+</body>
+</html>
